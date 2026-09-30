@@ -431,6 +431,64 @@ svg { display: block; }
 }
 .projects-more { text-align: center; }
 
+/* ── CERTIFICATIONS ── */
+.certs-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 40px 0 20px;
+}
+.certs-subtitle:first-of-type { margin-top: 0; }
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+}
+.cert-card-link { cursor: pointer; }
+.cert-card-link:hover .cert-name { color: var(--accent); }
+.cert-icon {
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cert-icon svg { width: 52px; height: 52px; color: var(--accent); }
+.cert-issuer {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: -8px;
+}
+.cert-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  transition: var(--transition);
+}
+.cert-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(100, 255, 218, 0.08);
+}
+.cert-badge { width: 130px; height: 130px; object-fit: contain; }
+.cert-name {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text);
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+
 /* ── CONTACT ── */
 .contact-desc {
   max-width: 540px;
@@ -522,4 +580,5 @@ footer .footer-sub { margin-top: 6px; font-size: 0.72rem; opacity: 0.6; }
 @media (max-width: 480px) {
   .projects-grid { grid-template-columns: 1fr; }
   .skills-grid    { grid-template-columns: 1fr; }
+  .certs-grid     { grid-template-columns: 1fr 1fr; }
 }

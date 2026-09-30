@@ -17,6 +17,7 @@ style.css    — all styles (CSS custom properties, responsive grid)
 script.js    — scroll effects, mobile burger menu, intersection observers
 resume.pdf   — full résumé, linked from nav + Experience section
 profile.jpg  — About section photo (700x700, compressed)
+badges/      — AWS certification badge PNGs, used in Certifications section
 ```
 
 ## Design System
@@ -36,8 +37,9 @@ profile.jpg  — About section photo (700x700, compressed)
 3. **About** — bio + photo (`profile.jpg`) + tech list
 4. **Skills** — 4 cards (DevSecOps & Security, Cloud Architecture, CI/CD & Automation, Leadership & Strategy)
 5. **Experience** — 4 cards (1 featured full-width) + link to `resume.pdf`
-6. **Contact** — email CTA + social row
-7. **Side bars** — floating GitHub / LinkedIn / email (hidden < 1100px)
+6. **Certifications** — Cloud (AWS badge grid, `badges/*.png`) + AI & Productivity (Coursera/Google, icon cards linking to verification pages)
+7. **Contact** — email CTA + social row
+8. **Side bars** — floating GitHub / LinkedIn / email (hidden < 1100px)
 
 ## What Still Needs Real Content
 - [x] Replace placeholder content with real experience (from resume, added 2026-09-29)
@@ -48,6 +50,8 @@ profile.jpg  — About section photo (700x700, compressed)
 
 ## Common Tasks
 - **Add a role:** duplicate an `<article class="project-card">` block in `index.html` inside `#experience`
+- **Add a cloud certification:** drop the badge PNG in `badges/`, duplicate a `<div class="cert-card">` block under the "Cloud" subheading in `#certifications`
+- **Add a course/specialization certification:** duplicate an `<a class="cert-card cert-card-link">` block under the "AI & Productivity" subheading, pointing `href` at the verification URL
 - **Change accent color:** update `--accent` in `:root` inside `style.css`
 - **Add a new section:** add a `<section id="x" class="section">` in `index.html`, add nav link, update `script.js` section list
 - **Deploy:** `git add . && git commit -m "..." && git push` — live in ~60 seconds
