@@ -41,7 +41,7 @@ const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-      e.target.querySelectorAll('.skill-card, .project-card, .cert-card').forEach((card, i) => {
+      e.target.querySelectorAll('.skill-card, .project-card, .cert-card, .leadership-card').forEach((card, i) => {
         card.style.transitionDelay = `${i * 0.08}s`;
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
@@ -57,7 +57,7 @@ const sectionObserver = new IntersectionObserver(
   { threshold: 0.05 }
 );
 
-document.querySelectorAll('#skills, #experience, #certifications').forEach(s => sectionObserver.observe(s));
+document.querySelectorAll('#skills, #experience, #certifications, #leadership').forEach(s => sectionObserver.observe(s));
 
 // ── Active nav link highlight ──
 const sections = document.querySelectorAll('section[id]');
