@@ -76,11 +76,11 @@
           engineers don't have to fight.
         </p>
         <div class="hero-cta fade-up">
-          <a href="#about" class="btn-primary">See the story</a>
+          <a href="#about" class="btn-primary">About Me</a>
           <a href="#contact" class="btn-outline">Let's talk</a>
         </div>
         <ul class="proof-strip fade-up">
-          <li><strong>350/412</strong><span>servers migrated to AWS</span></li>
+          <li><strong>~99%</strong><span>automation coverage</span></li>
           <li><strong>~19%</strong><span>AWS cost reduction</span></li>
           <li><strong>48h&nbsp;→&nbsp;&lt;6h</strong><span>patch cycle</span></li>
           <li><strong>~80%</strong><span>fewer production vulnerabilities</span></li>
@@ -270,17 +270,6 @@
               <div class="patch-bar-track"><div class="patch-bar-fill patch-bar-fill-after" style="--target:81%">$463K</div></div>
             </div>
           </div>
-          <figure class="policy-snippet-wrap">
-            <pre class="policy-snippet"><code>## illustrative OPA/Rego policy — generic example, not client code
-package platform.security
-
-deny[msg] {
-  input.resource.type == "aws_s3_bucket"
-  input.resource.acl == "public-read"
-  msg := "S3 buckets must not be publicly readable"
-}</code></pre>
-            <figcaption class="snippet-caption">Illustrative policy-as-code example — generic, not client code.</figcaption>
-          </figure>
         </article>
 
       </div>
