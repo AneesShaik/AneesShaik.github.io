@@ -451,18 +451,6 @@ a:focus-visible, button:focus-visible {
 .earlier-line { font-size: 0.9rem; color: var(--text-muted); }
 .earlier-line strong { color: var(--text); }
 
-/* ── DECISIONS ── */
-.decisions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-.decision-card {
-  background: var(--card-bg, var(--bg-light));
-  border-radius: 18px;
-  min-height: 160px;
-}
-
 /* ── TECHNICAL SKILLS ── */
 .skills-grid {
   display: grid;

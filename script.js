@@ -41,7 +41,7 @@ const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-      e.target.querySelectorAll('.chapter, .cert-card, .decision-card, .skill-category, .competency-card').forEach((card, i) => {
+      e.target.querySelectorAll('.chapter, .cert-card, .skill-category, .competency-card').forEach((card, i) => {
         card.style.transitionDelay = `${i * 0.08}s`;
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
@@ -57,7 +57,7 @@ const sectionObserver = new IntersectionObserver(
   { threshold: 0.05 }
 );
 
-document.querySelectorAll('#about, #skills, #competencies, #certifications, #decisions').forEach(s => sectionObserver.observe(s));
+document.querySelectorAll('#about, #skills, #competencies, #certifications').forEach(s => sectionObserver.observe(s));
 
 // ── Scroll-triggered reveals: before/after bars (patch cycle, AWS spend, on-prem footprint) ──
 const inViewObserver = new IntersectionObserver(
