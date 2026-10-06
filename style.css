@@ -11,7 +11,6 @@
   --border:       rgba(0, 0, 0, 0.08);
   --shadow:       0 2px 20px rgba(0, 0, 0, 0.06);
   --nav-h:        70px;
-  --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
   --font-sans:    -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
   --transition:   all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   --max-w:        1100px;
@@ -427,18 +426,6 @@ a:focus-visible, button:focus-visible {
   .patch-bar-fill { transition: none; width: var(--target); }
 }
 
-/* ── POLICY SNIPPET ── */
-.policy-snippet-wrap { margin-top: 24px; max-width: 100%; }
-.policy-snippet {
-  background: var(--bg);
-  border-radius: 12px;
-  padding: 18px 20px;
-  overflow-x: auto;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  line-height: 1.6;
-  color: var(--text);
-}
 .snippet-caption {
   font-size: 0.75rem;
   color: var(--text-muted);
