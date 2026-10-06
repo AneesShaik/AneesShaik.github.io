@@ -93,8 +93,8 @@ a:focus-visible, button:focus-visible {
   font-weight: 600;
   color: var(--accent);
   margin-right: auto;
+  white-space: nowrap;
 }
-.dot { color: var(--text); }
 .nav-links {
   display: flex;
   gap: 30px;
@@ -277,6 +277,12 @@ a:focus-visible, button:focus-visible {
   line-height: 1.5;
   letter-spacing: -0.01em;
 }
+.about-range {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
 
 .chapters {
   display: flex;
@@ -318,12 +324,57 @@ a:focus-visible, button:focus-visible {
   color: var(--text);
   margin-bottom: 18px;
 }
-.chapter-body {
-  font-size: 0.95rem;
-  line-height: 1.75;
+.chapter-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chapter-step {
+  background: var(--bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 14px 18px;
+}
+.step-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  margin-bottom: 6px;
+}
+.step-text {
+  font-size: 0.92rem;
+  line-height: 1.6;
   color: var(--text-muted);
 }
-.chapter-body strong { color: var(--text); font-weight: 600; }
+
+/* ── STAT COUNTER ── */
+.stat-counter {
+  margin-top: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.stat-counter-value {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.stat-counter::before {
+  content: attr(data-prefix);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+  order: -1;
+}
+.stat-counter::after {
+  content: attr(data-suffix);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
 
 /* ── PATCH BAR ── */
 .patch-bar { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; max-width: 420px; }
@@ -386,6 +437,75 @@ a:focus-visible, button:focus-visible {
   background: var(--card-bg, var(--bg-light));
   border-radius: 18px;
   min-height: 160px;
+}
+
+/* ── TECHNICAL SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.skill-category {
+  background: var(--card-bg, var(--bg-light));
+  border-radius: 18px;
+  padding: 28px 28px;
+}
+.skill-category-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--accent-strong);
+  margin-bottom: 16px;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-tags li {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 980px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── CORE COMPETENCIES ── */
+.competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.competency-card {
+  background: var(--card-bg, var(--bg-light));
+  border-radius: 18px;
+  padding: 28px;
+}
+.competency-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.competency-list { display: flex; flex-direction: column; gap: 9px; }
+.competency-list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.competency-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 /* ── CERTIFICATIONS ── */
@@ -526,4 +646,5 @@ footer .footer-sub { margin-top: 6px; font-size: 0.76rem; }
   .certs-grid     { grid-template-columns: 1fr 1fr; }
   .proof-strip    { gap: 24px 28px; }
   .proof-strip li { min-width: 42%; }
+  .logo           { font-size: 1.1rem; }
 }

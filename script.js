@@ -41,7 +41,7 @@ const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-      e.target.querySelectorAll('.chapter, .cert-card, .decision-card').forEach((card, i) => {
+      e.target.querySelectorAll('.chapter, .cert-card, .decision-card, .skill-category, .competency-card').forEach((card, i) => {
         card.style.transitionDelay = `${i * 0.08}s`;
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
@@ -57,7 +57,7 @@ const sectionObserver = new IntersectionObserver(
   { threshold: 0.05 }
 );
 
-document.querySelectorAll('#story, #certifications, #decisions').forEach(s => sectionObserver.observe(s));
+document.querySelectorAll('#about, #skills, #competencies, #certifications, #decisions').forEach(s => sectionObserver.observe(s));
 
 // ── Patch cycle before/after bar ──
 const patchBarObserver = new IntersectionObserver(
@@ -72,6 +72,40 @@ const patchBarObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll('.patch-bar').forEach(el => patchBarObserver.observe(el));
+
+// ── Stat counters (nightly tests, servers migrated) ──
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const valueEl = el.querySelector('.stat-counter-value');
+  if (prefersReducedMotion) {
+    valueEl.textContent = target.toLocaleString();
+    return;
+  }
+  const duration = 1100;
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    valueEl.textContent = Math.round(target * eased).toLocaleString();
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+const statCounterObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      animateCounter(e.target);
+      statCounterObserver.unobserve(e.target);
+    });
+  },
+  { threshold: 0.4 }
+);
+
+document.querySelectorAll('.stat-counter').forEach(el => statCounterObserver.observe(el));
 
 // ── Active nav link highlight ──
 const sections = document.querySelectorAll('section[id]');
