@@ -10,6 +10,9 @@ Personal developer portfolio hosted on GitHub Pages at https://AneesShaik.github
 ## Stack
 Plain HTML / CSS / JS — no build step, no framework. Push to `main` and GitHub Pages deploys automatically.
 
+## Narrative thread
+"I make the secure way the easy way." Every section exists to serve this idea — the site reads as a story (four chronological chapters), not a restated resume. New content should reinforce this thread rather than reverting to resume-shaped bullet lists.
+
 ## File Structure
 ```
 index.html   — full single-page layout (all sections)
@@ -40,15 +43,15 @@ No Google Fonts are loaded anymore — removed the Inter/Fira Code `<link>` tags
 **No numbering:** section titles are plain text (no `<span class="num">`), nav links have no `01./02.` counters — dropped as part of the Apple-inspired direction. Buttons are pill-shaped (`border-radius: 980px`).
 
 ## Sections (in order)
-1. **Nav** — sticky, blurs on scroll (light translucent + blur), hamburger on mobile, plain text links (no numbering)
-2. **Hero** — centered: name + tagline + CTA buttons (one solid pill, one grey pill) + scroll hint
-3. **About** (white) — bio + photo (`profile.jpg`, plain rounded corners, no accent frame) + tech list
-4. **Skills** (grey band) — 4 cards (DevSecOps & Security, Cloud Architecture, CI/CD & Automation, Leadership & Strategy)
-5. **Experience** (white) — 4 cards (1 featured, subtle accent-tinted gradient) + link to `resume.pdf`
-6. **Certifications** (grey band) — Cloud (AWS + Microsoft AZ-400 badge grid, `badges/*.png`, every card links out to its Credly verification page) + AI & Productivity (Coursera/Google, icon cards linking to verification pages)
-7. **Leadership** (white) — 4 cards (Engineering Leader, Transformation Leader, Compliance & Risk Leader, Strategic Influence), styled like Skills cards but with narrative paragraphs instead of bullet lists
-8. **Contact** (grey band) — email CTA + social row
-9. **Side bars** — floating GitHub / LinkedIn / email (hidden < 1100px)
+1. **Nav** — sticky, blurs on scroll (light translucent + blur), hamburger on mobile, plain text links (no numbering). Links: Story / Certifications / Contact.
+2. **Hero** (`#hero`) — headline "I make the secure way the easy way." + one-sentence subline + CTA buttons ("See the story" → `#story`, "Let's talk" → `#contact`) + a 4-stat proof strip (servers migrated, cost reduction, patch cycle, vuln reduction)
+3. **Story** (`#story`, white) — replaces the old About/Skills/Experience/Leadership split. Small intro (photo + one line), then four chronological `.chapter` cards (Ch.1 Gannett 2017–2020 → Ch.4 Principal DevSecOps Architect 2024–present), each with a role/dates line, a one-line headline, and a Challenge → What I did → What changed paragraph (~60 words, one hero number). Chapter 2 includes an animated 48h→6h patch-cycle bar (`.patch-bar`, respects `prefers-reduced-motion`); Chapter 4 includes a labeled illustrative policy-as-code snippet (`.policy-snippet`). Below the chapters: a short "How I Lead" paragraph, a one-line "Earlier" mention (IFPRI, REAN Cloud), and a link to `resume.pdf`.
+4. **Decisions I'd Defend** (`#decisions`, white) — hidden via the `hidden` attribute until real content exists. Skeleton only: `.decisions-grid` with three empty `.decision-card` divs (tradeoff / mistake-and-lesson / principle). To publish: write the three cards and remove `hidden`.
+5. **Certifications** (`#certifications`, grey band) — 3 featured badges (AWS Solutions Architect Pro, Microsoft AZ-400, AWS Developer Associate) in `.certs-grid`, each linking out to its Credly verification page. Everything else (Cloud/AI Practitioner, 5 Coursera courses) collapses into one quiet `.certs-also` line with inline links.
+6. **Contact** (`#contact`, grey band) — specific hiring ask + email CTA + social row
+7. **Side bars** — floating GitHub / LinkedIn / email (hidden < 1100px)
+
+No separate Skills, Experience, or Leadership sections, and no tech-chip lists anywhere — that content now lives inside the Story chapters' prose, or in `resume.pdf` for numbers that didn't fit the word budget (see `TODO.md`).
 
 ## What Still Needs Real Content
 - [x] Replace placeholder content with real experience (from resume, added 2026-09-29)
@@ -62,12 +65,13 @@ No Google Fonts are loaded anymore — removed the Inter/Fira Code `<link>` tags
 - [x] Microsoft AZ-400 cert card now uses a real badge image (`badges/microsoft-certified-devops-engineer-expert.png`), still links out to Credly (updated 2026-10-05)
 - [x] All 4 AWS cert cards now link out to their Credly verification pages, matching the AZ-400/Coursera cards (updated 2026-10-05)
 - [x] Full visual redesign to an Apple-inspired light theme — new palette, system font, pill buttons, alternating section bands, numbering removed (updated 2026-10-05)
+- [x] Content/storytelling overhaul around "I make the secure way the easy way" — Hero/About/Skills/Experience/Leadership replaced with a 4-chapter Story section, Certifications simplified to 3 featured badges + an Also: line, SEO meta/OG/JSON-LD added (updated 2026-10-05, see `TODO.md` for open items: FAA proposal wording, a compliance-reporting-time figure to confirm, numbers now resume-only, and the hidden "Decisions I'd Defend" section awaiting real content)
 
 ## Common Tasks
-- **Add a role:** duplicate an `<article class="project-card">` block in `index.html` inside `#experience`
-- **Add a cloud certification:** drop the badge PNG in `badges/`, duplicate an `<a class="cert-card cert-card-link">` block (pointing `href` at the Credly verification URL) under the "Cloud" subheading in `#certifications`
-- **Add a course/specialization certification:** duplicate an `<a class="cert-card cert-card-link">` block under the "AI & Productivity" subheading, pointing `href` at the verification URL
-- **Add a leadership pillar:** duplicate a `<div class="leadership-card">` block in `index.html` inside `#leadership`
-- **Change accent color:** update `--accent` (and `--accent-strong` for its hover shade) in `:root` inside `style.css`
-- **Add a new section:** add a `<section id="x" class="section">` in `index.html` (append `section-alt` + wrap contents in `.section-inner` for a grey band, alternating with neighboring sections), add nav link, update `script.js` section list
+- **Add a chapter to the Story:** duplicate an `<article class="chapter">` block in `index.html` inside `#story .chapters`; keep the Challenge → What I did → What changed structure and one hero number per chapter
+- **Add a featured certification:** drop the badge PNG in `badges/`, duplicate an `<a class="cert-card cert-card-link">` block (pointing `href` at the Credly verification URL) in `#certifications .certs-grid`
+- **Add a minor certification:** append it to the `.certs-also` line in `#certifications`, as a plain inline link
+- **Publish "Decisions I'd Defend":** write the three `.decision-card` divs inside `#decisions` in `index.html`, then remove the `hidden` attribute on the `<section id="decisions">` tag
+- **Change accent color:** update `--accent` (and `--accent-strong` for its hover/contrast-safe shade) in `:root` inside `style.css`
+- **Add a new section:** add a `<section id="x" class="section">` in `index.html` (append `section-alt` + wrap contents in `.section-inner` for a grey band, alternating with neighboring sections), add nav link, update the `sectionObserver`/`activeLinkObserver` selectors in `script.js`
 - **Deploy:** `git add . && git commit -m "..." && git push` — live in ~60 seconds
