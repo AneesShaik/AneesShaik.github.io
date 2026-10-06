@@ -59,53 +59,39 @@ const sectionObserver = new IntersectionObserver(
 
 document.querySelectorAll('#about, #skills, #competencies, #certifications, #decisions').forEach(s => sectionObserver.observe(s));
 
-// ── Patch cycle before/after bar ──
-const patchBarObserver = new IntersectionObserver(
+// ── Build the Ch.3 server dot grid (on-prem → AWS) ──
+function buildDotGrid(el) {
+  const total = parseInt(el.dataset.total, 10);
+  const migrated = parseInt(el.dataset.migrated, 10);
+  const frag = document.createDocumentFragment();
+  let migratedSoFar = 0;
+  for (let i = 1; i <= total; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot-grid-dot';
+    if (Math.floor((i * migrated) / total) > migratedSoFar) {
+      dot.classList.add('migrate');
+      migratedSoFar++;
+    }
+    frag.appendChild(dot);
+  }
+  el.appendChild(frag);
+}
+
+document.querySelectorAll('.dot-grid').forEach(buildDotGrid);
+
+// ── Scroll-triggered reveals: patch bars, shift-left diagram, dot grid ──
+const inViewObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       e.target.classList.add('in-view');
-      patchBarObserver.unobserve(e.target);
+      inViewObserver.unobserve(e.target);
     });
   },
   { threshold: 0.4 }
 );
 
-document.querySelectorAll('.patch-bar').forEach(el => patchBarObserver.observe(el));
-
-// ── Stat counters (nightly tests, servers migrated) ──
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target, 10);
-  const valueEl = el.querySelector('.stat-counter-value');
-  if (prefersReducedMotion) {
-    valueEl.textContent = target.toLocaleString();
-    return;
-  }
-  const duration = 1100;
-  const start = performance.now();
-  function tick(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    valueEl.textContent = Math.round(target * eased).toLocaleString();
-    if (progress < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-const statCounterObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      animateCounter(e.target);
-      statCounterObserver.unobserve(e.target);
-    });
-  },
-  { threshold: 0.4 }
-);
-
-document.querySelectorAll('.stat-counter').forEach(el => statCounterObserver.observe(el));
+document.querySelectorAll('.patch-bar, .shift-left, .dot-grid').forEach(el => inViewObserver.observe(el));
 
 // ── Active nav link highlight ──
 const sections = document.querySelectorAll('section[id]');

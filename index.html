@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anees Shaik — Principal DevSecOps Architect | FedRAMP · NIST 800-53 · AWS</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230071e3'/%3E%3Ctext x='50' y='69' font-family='-apple-system,sans-serif' font-size='58' font-weight='600' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
-  <meta name="description" content="Principal DevSecOps Architect who turns FISMA, FedRAMP, and NIST 800-53 requirements into CI/CD pipelines engineers don't have to fight. 350 servers migrated to AWS, patch cycles cut from 48 hours to under 6, ~80% fewer production vulnerabilities." />
+  <meta name="description" content="Principal DevSecOps Architect who turns FISMA, FedRAMP, and NIST 800-53 requirements into CI/CD pipelines engineers don't have to fight. 350 of 412 on-prem servers migrated to AWS, patch cycles cut from 48 hours to under 6, ~80% fewer production vulnerabilities." />
   <link rel="canonical" href="https://aneesshaik.github.io/" />
 
   <meta property="og:type" content="website" />
@@ -49,7 +49,6 @@
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="resume.pdf" class="btn-outline" target="_blank" rel="noopener">Resume</a>
       <button class="burger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -61,7 +60,6 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       </ul>
     </div>
   </header>
@@ -82,7 +80,7 @@
           <a href="#contact" class="btn-outline">Let's talk</a>
         </div>
         <ul class="proof-strip fade-up">
-          <li><strong>350</strong><span>servers migrated to AWS</span></li>
+          <li><strong>350/412</strong><span>servers migrated to AWS</span></li>
           <li><strong>~19%</strong><span>AWS cost reduction</span></li>
           <li><strong>48h&nbsp;→&nbsp;&lt;6h</strong><span>patch cycle</span></li>
           <li><strong>~80%</strong><span>fewer production vulnerabilities</span></li>
@@ -141,8 +139,20 @@
               <p class="step-text">~1,000 nightly tests caught problems before readers ever saw them.</p>
             </div>
           </div>
-          <div class="stat-counter" data-target="1000" data-prefix="~" data-suffix=" nightly tests" role="img" aria-label="Approximately 1,000 nightly regression tests">
-            <span class="stat-counter-value">0</span>
+          <div class="shift-left" role="img" aria-label="Diagram: testing shifted left in the delivery pipeline, from release-time to build-time, resulting in lower costs, faster delivery, and greater test coverage">
+            <div class="shift-left-track">
+              <span class="shift-left-stage">Code</span>
+              <span class="shift-left-stage">Build</span>
+              <span class="shift-left-stage">Deploy</span>
+              <span class="shift-left-stage">Release</span>
+              <span class="shift-left-testing">Testing</span>
+            </div>
+            <p class="snippet-caption">Illustrative pipeline — testing moved from release-time to build-time.</p>
+            <ul class="shift-left-benefits">
+              <li>Lower costs</li>
+              <li>Faster delivery</li>
+              <li>Greater coverage</li>
+            </ul>
           </div>
         </article>
 
@@ -185,7 +195,7 @@
             <span class="chapter-role">Senior Engineering Manager · CSSI LLC · 2022–2024</span>
           </div>
           <h3 class="chapter-title">Learn to move</h3>
-          <p class="chapter-headline">Moved 350 servers to AWS, from pitch to cutover in 18 months.</p>
+          <p class="chapter-headline">Moved 350 of 412 on-prem servers to AWS, from pitch to cutover in 18 months.</p>
           <div class="chapter-steps">
             <div class="chapter-step">
               <span class="step-label">Challenge</span>
@@ -197,11 +207,16 @@
             </div>
             <div class="chapter-step">
               <span class="step-label">What changed</span>
-              <p class="step-text">350 servers moved to AWS with zero unplanned downtime, on an 18-month timeline.</p>
+              <p class="step-text">350 of 412 on-prem servers moved to AWS with zero unplanned downtime, on an 18-month timeline.</p>
             </div>
           </div>
-          <div class="stat-counter" data-target="350" data-suffix=" servers migrated to AWS" role="img" aria-label="350 servers migrated to AWS">
-            <span class="stat-counter-value">0</span>
+          <div class="dot-grid-wrap">
+            <div class="dot-grid-labels">
+              <span class="dot-grid-label">On-prem</span>
+              <span class="dot-grid-label dot-grid-label-aws">AWS</span>
+            </div>
+            <div class="dot-grid" data-total="412" data-migrated="350" role="img" aria-label="350 of 412 on-prem servers migrated to AWS"></div>
+            <p class="dot-grid-caption">350 of 412 servers migrated to AWS</p>
           </div>
         </article>
 
@@ -270,12 +285,6 @@ deny[msg] {
         Food Policy Research Institute, and DevOps Engineer at REAN Cloud
         (AWS Partner), 2016–2017.
       </p>
-
-      <div class="projects-more">
-        <a href="resume.pdf" target="_blank" rel="noopener" class="btn-outline">
-          View Full Resume →
-        </a>
-      </div>
     </section>
 
     <!-- ── TECHNICAL SKILLS ── -->
@@ -339,7 +348,7 @@ deny[msg] {
         <div class="competency-card">
           <h3 class="competency-title">Migration Strategy</h3>
           <ul class="competency-list">
-            <li>Pitched and led a 350-server on-prem-to-AWS migration</li>
+            <li>Pitched and led the migration of 350 of 412 on-prem servers to AWS</li>
             <li>Defined architecture, security, and compliance requirements through cutover</li>
             <li>Chose hybrid vs. full migration case by case to meet contract requirements</li>
           </ul>
