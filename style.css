@@ -169,34 +169,47 @@ svg { display: block; }
   text-align: center;
 }
 .hero-content { max-width: 700px; margin: 0 auto; }
-.hero-greeting {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-}
 .hero-name {
-  font-size: clamp(2.8rem, 7.5vw, 5rem);
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   color: var(--text);
-  line-height: 1.08;
-  margin-bottom: 10px;
-}
-.hero-sub {
-  font-size: clamp(1.35rem, 3vw, 2.1rem);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  color: var(--text-muted);
-  line-height: 1.2;
-  margin-bottom: 26px;
+  line-height: 1.12;
+  margin-bottom: 20px;
 }
 .hero-desc {
-  max-width: 520px;
-  margin: 0 auto 40px;
-  font-size: 1.05rem;
+  max-width: 540px;
+  margin: 0 auto 36px;
+  font-size: 1.1rem;
   line-height: 1.7;
 }
-.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 56px; }
+
+/* ── PROOF STRIP ── */
+.proof-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 44px;
+}
+.proof-strip li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 110px;
+}
+.proof-strip strong {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.proof-strip span {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
 .hero-scroll-hint {
   position: absolute;
   bottom: 40px;
@@ -549,4 +562,6 @@ footer .footer-sub { margin-top: 6px; font-size: 0.76rem; opacity: 0.7; }
   .projects-grid { grid-template-columns: 1fr; }
   .skills-grid    { grid-template-columns: 1fr; }
   .certs-grid     { grid-template-columns: 1fr 1fr; }
+  .proof-strip    { gap: 24px 28px; }
+  .proof-strip li { min-width: 42%; }
 }
