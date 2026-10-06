@@ -139,19 +139,35 @@
               <p class="step-text">~1,000 nightly tests caught problems before readers ever saw them.</p>
             </div>
           </div>
-          <div class="shift-left" role="img" aria-label="Diagram: testing shifted left in the delivery pipeline, from release-time to build-time, resulting in lower costs, faster delivery, and greater test coverage">
-            <div class="shift-left-track">
-              <span class="shift-left-stage">Code</span>
-              <span class="shift-left-stage">Build</span>
-              <span class="shift-left-stage">Deploy</span>
-              <span class="shift-left-stage">Release</span>
-              <span class="shift-left-testing">Testing</span>
+          <div class="pipeline-compare">
+            <div class="pipeline-row">
+              <span class="pipeline-row-label">Traditional</span>
+              <div class="pipeline-stages">
+                <span class="pipeline-stage">Code</span>
+                <span class="pipeline-stage">Build</span>
+                <span class="pipeline-stage">Deploy</span>
+                <span class="pipeline-stage pipeline-stage-test">Test</span>
+              </div>
             </div>
-            <p class="snippet-caption">Illustrative pipeline — testing moved from release-time to build-time.</p>
-            <ul class="shift-left-benefits">
-              <li>Lower costs</li>
-              <li>Faster delivery</li>
-              <li>Greater coverage</li>
+            <p class="pipeline-note">Bugs found after deploy, late and costly to fix.</p>
+
+            <div class="pipeline-row pipeline-row-shift">
+              <span class="pipeline-row-label">Shift left</span>
+              <div class="pipeline-stages">
+                <span class="pipeline-stage pipeline-stage-test">Test</span>
+                <span class="pipeline-stage">Code</span>
+                <span class="pipeline-stage">Build</span>
+                <span class="pipeline-stage">Deploy</span>
+              </div>
+            </div>
+            <p class="pipeline-note">Testing runs first — nightly, before deploy.</p>
+
+            <p class="snippet-caption">~1,000 nightly regression tests, run against a model-based regression framework I co-architected.</p>
+
+            <ul class="pipeline-benefits">
+              <li>Bugs caught earlier</li>
+              <li>Lower cost to fix</li>
+              <li>Faster, safer releases</li>
             </ul>
           </div>
         </article>
@@ -207,17 +223,20 @@
             </div>
             <div class="chapter-step">
               <span class="step-label">What changed</span>
-              <p class="step-text">350 of 412 on-prem servers moved to AWS with zero unplanned downtime, on an 18-month timeline.</p>
+              <p class="step-text">350 of 412 on-prem servers moved to AWS — an ~85% smaller on-prem footprint — with zero unplanned downtime, on an 18-month timeline.</p>
             </div>
           </div>
-          <div class="dot-grid-wrap">
-            <div class="dot-grid-labels">
-              <span class="dot-grid-label">On-prem</span>
-              <span class="dot-grid-label dot-grid-label-aws">AWS</span>
+          <div class="patch-bar" role="img" aria-label="On-prem footprint, before and after: 100% before, approximately 15% after">
+            <div class="patch-bar-row">
+              <span class="patch-bar-label">Before</span>
+              <div class="patch-bar-track"><div class="patch-bar-fill" style="--target:100%">100%</div></div>
             </div>
-            <div class="dot-grid" data-total="412" data-migrated="350" role="img" aria-label="350 of 412 on-prem servers migrated to AWS"></div>
-            <p class="dot-grid-caption">350 of 412 servers migrated to AWS</p>
+            <div class="patch-bar-row">
+              <span class="patch-bar-label">After</span>
+              <div class="patch-bar-track"><div class="patch-bar-fill patch-bar-fill-after" style="--target:15%">~15%</div></div>
+            </div>
           </div>
+          <p class="visual-caption">~85% smaller on-prem footprint</p>
         </article>
 
         <article class="chapter">

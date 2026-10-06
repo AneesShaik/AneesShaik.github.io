@@ -59,27 +59,7 @@ const sectionObserver = new IntersectionObserver(
 
 document.querySelectorAll('#about, #skills, #competencies, #certifications, #decisions').forEach(s => sectionObserver.observe(s));
 
-// ── Build the Ch.3 server dot grid (on-prem → AWS) ──
-function buildDotGrid(el) {
-  const total = parseInt(el.dataset.total, 10);
-  const migrated = parseInt(el.dataset.migrated, 10);
-  const frag = document.createDocumentFragment();
-  let migratedSoFar = 0;
-  for (let i = 1; i <= total; i++) {
-    const dot = document.createElement('span');
-    dot.className = 'dot-grid-dot';
-    if (Math.floor((i * migrated) / total) > migratedSoFar) {
-      dot.classList.add('migrate');
-      migratedSoFar++;
-    }
-    frag.appendChild(dot);
-  }
-  el.appendChild(frag);
-}
-
-document.querySelectorAll('.dot-grid').forEach(buildDotGrid);
-
-// ── Scroll-triggered reveals: patch bars, shift-left diagram, dot grid ──
+// ── Scroll-triggered reveals: before/after bars (patch cycle, AWS spend, on-prem footprint) ──
 const inViewObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(e => {
@@ -91,7 +71,7 @@ const inViewObserver = new IntersectionObserver(
   { threshold: 0.4 }
 );
 
-document.querySelectorAll('.patch-bar, .shift-left, .dot-grid').forEach(el => inViewObserver.observe(el));
+document.querySelectorAll('.patch-bar').forEach(el => inViewObserver.observe(el));
 
 // ── Active nav link highlight ──
 const sections = document.querySelectorAll('section[id]');

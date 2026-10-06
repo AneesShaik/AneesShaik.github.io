@@ -350,47 +350,41 @@ a:focus-visible, button:focus-visible {
   color: var(--text-muted);
 }
 
-/* ── SHIFT LEFT (Ch.1) ── */
-.shift-left { margin-top: 24px; max-width: 460px; }
-.shift-left-track {
-  position: relative;
-  display: flex;
-  gap: 10px;
-  background: var(--bg);
-  border-radius: 10px;
-  padding: 14px;
-}
-.shift-left-stage {
-  flex: 1;
-  text-align: center;
-  font-size: 0.74rem;
-  color: var(--text-muted);
-  padding: 10px 4px;
-  border-radius: 6px;
-  background: var(--bg-light);
-}
-.shift-left-testing {
-  position: absolute;
-  top: 14px;
-  left: 70%;
-  background: var(--accent);
-  color: #ffffff;
+/* ── PIPELINE COMPARE (Ch.1, static illustration) ── */
+.pipeline-compare { margin-top: 24px; max-width: 460px; }
+.pipeline-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.pipeline-row-label {
+  width: 86px;
+  flex-shrink: 0;
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 9px 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.pipeline-row-shift .pipeline-row-label { color: var(--accent-strong); }
+.pipeline-stages { display: flex; gap: 6px; flex: 1; }
+.pipeline-stage {
+  flex: 1;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding: 9px 2px;
   border-radius: 6px;
-  white-space: nowrap;
-  transition: left 1.1s ease;
+  background: var(--bg);
+  border: 1px solid var(--border);
 }
-.shift-left.in-view .shift-left-testing { left: 2%; }
-.shift-left .snippet-caption { margin-top: 10px; }
-.shift-left-benefits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
+.pipeline-stage-test { background: var(--text-muted); color: #ffffff; font-weight: 600; border-color: transparent; }
+.pipeline-row-shift .pipeline-stage-test { background: var(--accent); }
+.pipeline-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: 96px;
+  margin-bottom: 14px;
 }
-.shift-left-benefits li {
+.pipeline-compare .snippet-caption { margin-top: 10px; }
+.pipeline-benefits { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.pipeline-benefits li {
   background: var(--accent-tint);
   color: var(--accent-strong);
   font-size: 0.76rem;
@@ -398,50 +392,13 @@ a:focus-visible, button:focus-visible {
   padding: 6px 14px;
   border-radius: 980px;
 }
-@media (prefers-reduced-motion: reduce) {
-  .shift-left-testing { transition: none; left: 2%; }
-}
 
-/* ── DOT GRID (Ch.3) ── */
-.dot-grid-wrap { margin-top: 24px; max-width: 460px; }
-.dot-grid-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-.dot-grid-label-aws { color: var(--accent-strong); }
-.dot-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9px, 1fr));
-  gap: 3px;
-  background: var(--bg);
-  border-radius: 10px;
-  padding: 12px;
-}
-.dot-grid-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--border);
-  transition: background-color 1.1s ease, transform 1.1s ease;
-}
-.dot-grid.in-view .dot-grid-dot.migrate {
-  background: var(--accent);
-  transform: translate(8px, -6px);
-}
-.dot-grid-caption {
+/* ── Generic bold caption under a chapter visual (Ch.3 footprint bar, etc.) ── */
+.visual-caption {
   margin-top: 12px;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text);
-}
-@media (prefers-reduced-motion: reduce) {
-  .dot-grid-dot { transition: none; }
 }
 
 /* ── PATCH BAR ── */
@@ -708,6 +665,10 @@ footer .footer-sub { margin-top: 6px; font-size: 0.76rem; }
   .story-intro-grid { grid-template-columns: 1fr; text-align: center; }
   .chapter { padding: 28px 24px; }
   .nav-inner { padding: 0 24px; }
+  .pipeline-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .pipeline-row-label { width: auto; }
+  .pipeline-stages { width: 100%; }
+  .pipeline-note { margin-left: 0; }
 }
 @media (max-width: 480px) {
   .certs-grid     { grid-template-columns: 1fr 1fr; }
