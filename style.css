@@ -93,8 +93,8 @@ a:focus-visible, button:focus-visible {
   font-weight: 600;
   color: var(--accent);
   margin-right: auto;
+  white-space: nowrap;
 }
-.dot { color: var(--text); }
 .nav-links {
   display: flex;
   gap: 30px;
@@ -277,6 +277,12 @@ a:focus-visible, button:focus-visible {
   line-height: 1.5;
   letter-spacing: -0.01em;
 }
+.about-range {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
 
 .chapters {
   display: flex;
@@ -318,12 +324,82 @@ a:focus-visible, button:focus-visible {
   color: var(--text);
   margin-bottom: 18px;
 }
-.chapter-body {
-  font-size: 0.95rem;
-  line-height: 1.75;
+.chapter-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chapter-step {
+  background: var(--bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 14px 18px;
+}
+.step-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  margin-bottom: 6px;
+}
+.step-text {
+  font-size: 0.92rem;
+  line-height: 1.6;
   color: var(--text-muted);
 }
-.chapter-body strong { color: var(--text); font-weight: 600; }
+
+/* ── PIPELINE COMPARE (Ch.1, static illustration) ── */
+.pipeline-compare { margin-top: 24px; max-width: 460px; }
+.pipeline-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.pipeline-row-label {
+  width: 86px;
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.pipeline-row-shift .pipeline-row-label { color: var(--accent-strong); }
+.pipeline-stages { display: flex; gap: 6px; flex: 1; }
+.pipeline-stage {
+  flex: 1;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding: 9px 2px;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.pipeline-stage-test { background: var(--text-muted); color: #ffffff; font-weight: 600; border-color: transparent; }
+.pipeline-row-shift .pipeline-stage-test { background: var(--accent); }
+.pipeline-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: 96px;
+  margin-bottom: 14px;
+}
+.pipeline-compare .snippet-caption { margin-top: 10px; }
+.pipeline-benefits { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.pipeline-benefits li {
+  background: var(--accent-tint);
+  color: var(--accent-strong);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 980px;
+}
+
+/* ── Generic bold caption under a chapter visual (Ch.3 footprint bar, etc.) ── */
+.visual-caption {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
 
 /* ── PATCH BAR ── */
 .patch-bar { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; max-width: 420px; }
@@ -372,9 +448,8 @@ a:focus-visible, button:focus-visible {
 /* ── HOW I LEAD ── */
 .how-i-lead { margin-bottom: 40px; }
 .how-i-lead p { font-size: 0.98rem; line-height: 1.75; }
-.earlier-line { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 40px; }
+.earlier-line { font-size: 0.9rem; color: var(--text-muted); }
 .earlier-line strong { color: var(--text); }
-.projects-more { text-align: center; }
 
 /* ── DECISIONS ── */
 .decisions-grid {
@@ -386,6 +461,75 @@ a:focus-visible, button:focus-visible {
   background: var(--card-bg, var(--bg-light));
   border-radius: 18px;
   min-height: 160px;
+}
+
+/* ── TECHNICAL SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.skill-category {
+  background: var(--card-bg, var(--bg-light));
+  border-radius: 18px;
+  padding: 28px 28px;
+}
+.skill-category-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--accent-strong);
+  margin-bottom: 16px;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-tags li {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 980px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── CORE COMPETENCIES ── */
+.competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.competency-card {
+  background: var(--card-bg, var(--bg-light));
+  border-radius: 18px;
+  padding: 28px;
+}
+.competency-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.competency-list { display: flex; flex-direction: column; gap: 9px; }
+.competency-list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.competency-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 /* ── CERTIFICATIONS ── */
@@ -509,7 +653,7 @@ footer .footer-sub { margin-top: 6px; font-size: 0.76rem; }
   .side-bar { display: none; }
 }
 @media (max-width: 768px) {
-  .nav-links, .nav-inner > .btn-outline { display: none; }
+  .nav-links { display: none; }
   .burger { display: flex; margin-left: auto; }
   .mobile-menu { display: block; }
   #hero { padding: 0 24px; padding-top: var(--nav-h); }
@@ -521,9 +665,14 @@ footer .footer-sub { margin-top: 6px; font-size: 0.76rem; }
   .story-intro-grid { grid-template-columns: 1fr; text-align: center; }
   .chapter { padding: 28px 24px; }
   .nav-inner { padding: 0 24px; }
+  .pipeline-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .pipeline-row-label { width: auto; }
+  .pipeline-stages { width: 100%; }
+  .pipeline-note { margin-left: 0; }
 }
 @media (max-width: 480px) {
   .certs-grid     { grid-template-columns: 1fr 1fr; }
   .proof-strip    { gap: 24px 28px; }
   .proof-strip li { min-width: 42%; }
+  .logo           { font-size: 1.1rem; }
 }

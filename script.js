@@ -41,7 +41,7 @@ const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-      e.target.querySelectorAll('.chapter, .cert-card, .decision-card').forEach((card, i) => {
+      e.target.querySelectorAll('.chapter, .cert-card, .decision-card, .skill-category, .competency-card').forEach((card, i) => {
         card.style.transitionDelay = `${i * 0.08}s`;
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
@@ -57,21 +57,21 @@ const sectionObserver = new IntersectionObserver(
   { threshold: 0.05 }
 );
 
-document.querySelectorAll('#story, #certifications, #decisions').forEach(s => sectionObserver.observe(s));
+document.querySelectorAll('#about, #skills, #competencies, #certifications, #decisions').forEach(s => sectionObserver.observe(s));
 
-// ── Patch cycle before/after bar ──
-const patchBarObserver = new IntersectionObserver(
+// ── Scroll-triggered reveals: before/after bars (patch cycle, AWS spend, on-prem footprint) ──
+const inViewObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       e.target.classList.add('in-view');
-      patchBarObserver.unobserve(e.target);
+      inViewObserver.unobserve(e.target);
     });
   },
   { threshold: 0.4 }
 );
 
-document.querySelectorAll('.patch-bar').forEach(el => patchBarObserver.observe(el));
+document.querySelectorAll('.patch-bar').forEach(el => inViewObserver.observe(el));
 
 // ── Active nav link highlight ──
 const sections = document.querySelectorAll('section[id]');

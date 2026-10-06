@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anees Shaik — Principal DevSecOps Architect | FedRAMP · NIST 800-53 · AWS</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230071e3'/%3E%3Ctext x='50' y='69' font-family='-apple-system,sans-serif' font-size='58' font-weight='600' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
-  <meta name="description" content="Principal DevSecOps Architect who turns FISMA, FedRAMP, and NIST 800-53 requirements into CI/CD pipelines engineers don't have to fight. 350 servers migrated to AWS, patch cycles cut from 48 hours to under 6, ~80% fewer production vulnerabilities." />
+  <meta name="description" content="Principal DevSecOps Architect who turns FISMA, FedRAMP, and NIST 800-53 requirements into CI/CD pipelines engineers don't have to fight. 350 of 412 on-prem servers migrated to AWS, patch cycles cut from 48 hours to under 6, ~80% fewer production vulnerabilities." />
   <link rel="canonical" href="https://aneesshaik.github.io/" />
 
   <meta property="og:type" content="website" />
@@ -42,13 +42,13 @@
   <!-- ── NAV ── -->
   <header id="navbar">
     <nav class="nav-inner" aria-label="Primary">
-      <a href="#hero" class="logo">AS<span class="dot">.</span></a>
+      <a href="#hero" class="logo">Anees Shaik</a>
       <ul class="nav-links">
-        <li><a href="#story">Story</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="resume.pdf" class="btn-outline" target="_blank" rel="noopener">Resume</a>
       <button class="burger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -56,10 +56,10 @@
     <!-- mobile menu -->
     <div class="mobile-menu">
       <ul>
-        <li><a href="#story">Story</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       </ul>
     </div>
   </header>
@@ -76,11 +76,11 @@
           engineers don't have to fight.
         </p>
         <div class="hero-cta fade-up">
-          <a href="#story" class="btn-primary">See the story</a>
+          <a href="#about" class="btn-primary">See the story</a>
           <a href="#contact" class="btn-outline">Let's talk</a>
         </div>
         <ul class="proof-strip fade-up">
-          <li><strong>350</strong><span>servers migrated to AWS</span></li>
+          <li><strong>350/412</strong><span>servers migrated to AWS</span></li>
           <li><strong>~19%</strong><span>AWS cost reduction</span></li>
           <li><strong>48h&nbsp;→&nbsp;&lt;6h</strong><span>patch cycle</span></li>
           <li><strong>~80%</strong><span>fewer production vulnerabilities</span></li>
@@ -91,9 +91,9 @@
       </div>
     </section>
 
-    <!-- ── STORY ── -->
-    <section id="story" class="section">
-      <h2 class="section-title">The Story</h2>
+    <!-- ── ABOUT ── -->
+    <section id="about" class="section">
+      <h2 class="section-title">About</h2>
 
       <div class="story-intro-grid">
         <div class="about-photo-wrap">
@@ -107,6 +107,15 @@
         </p>
       </div>
 
+      <p class="about-range">
+        I've built my career across four very different worlds: a services
+        firm, where every client meant a new problem to adapt to; an NGO,
+        where limited resources demanded resourcefulness; a fast-paced SaaS
+        product company, where shipping speed was everything; and now
+        federal consulting, where security and compliance aren't optional.
+        Together they taught me to move fast without breaking trust.
+      </p>
+
       <div class="chapters">
 
         <article class="chapter">
@@ -116,11 +125,51 @@
           </div>
           <h3 class="chapter-title">Learn to automate</h3>
           <p class="chapter-headline">Kept a CMS for 100+ publications shipping.</p>
-          <p class="chapter-body">
-            <strong>Challenge:</strong> A CMS serving 100+ publications and millions of daily readers needed faster, safer releases.
-            <strong>What I did:</strong> Built CI/CD pipelines and automated environment provisioning, then co-architected a model-based regression framework.
-            <strong>What changed:</strong> ~1,000 nightly tests caught problems before readers ever saw them.
-          </p>
+          <div class="chapter-steps">
+            <div class="chapter-step">
+              <span class="step-label">Challenge</span>
+              <p class="step-text">A CMS serving 100+ publications and millions of daily readers needed faster, safer releases.</p>
+            </div>
+            <div class="chapter-step">
+              <span class="step-label">What I did</span>
+              <p class="step-text">Built CI/CD pipelines and automated environment provisioning, then co-architected a model-based regression framework.</p>
+            </div>
+            <div class="chapter-step">
+              <span class="step-label">What changed</span>
+              <p class="step-text">~1,000 nightly tests caught problems before readers ever saw them.</p>
+            </div>
+          </div>
+          <div class="pipeline-compare">
+            <div class="pipeline-row">
+              <span class="pipeline-row-label">Traditional</span>
+              <div class="pipeline-stages">
+                <span class="pipeline-stage">Code</span>
+                <span class="pipeline-stage">Build</span>
+                <span class="pipeline-stage">Deploy</span>
+                <span class="pipeline-stage pipeline-stage-test">Test</span>
+              </div>
+            </div>
+            <p class="pipeline-note">Bugs found after deploy, late and costly to fix.</p>
+
+            <div class="pipeline-row pipeline-row-shift">
+              <span class="pipeline-row-label">Shift left</span>
+              <div class="pipeline-stages">
+                <span class="pipeline-stage pipeline-stage-test">Test</span>
+                <span class="pipeline-stage">Code</span>
+                <span class="pipeline-stage">Build</span>
+                <span class="pipeline-stage">Deploy</span>
+              </div>
+            </div>
+            <p class="pipeline-note">Testing runs first — nightly, before deploy.</p>
+
+            <p class="snippet-caption">~1,000 nightly regression tests, run against a model-based regression framework I co-architected.</p>
+
+            <ul class="pipeline-benefits">
+              <li>Bugs caught earlier</li>
+              <li>Lower cost to fix</li>
+              <li>Faster, safer releases</li>
+            </ul>
+          </div>
         </article>
 
         <article class="chapter">
@@ -130,11 +179,20 @@
           </div>
           <h3 class="chapter-title">Learn to secure</h3>
           <p class="chapter-headline">Cut patch night from 48 hours to under 6.</p>
-          <p class="chapter-body">
-            <strong>Challenge:</strong> Monthly patch cycles ran nearly two full days, and security scanning happened too late to matter.
-            <strong>What I did:</strong> Embedded automated scanning into CI/CD and rebuilt the patch pipeline for zero-downtime rollouts.
-            <strong>What changed:</strong> Patch night dropped to under 6 hours, and production vulnerabilities fell ~80%.
-          </p>
+          <div class="chapter-steps">
+            <div class="chapter-step">
+              <span class="step-label">Challenge</span>
+              <p class="step-text">Monthly patch cycles ran nearly two full days, and security scanning happened too late to matter.</p>
+            </div>
+            <div class="chapter-step">
+              <span class="step-label">What I did</span>
+              <p class="step-text">Embedded automated scanning into CI/CD and rebuilt the patch pipeline for zero-downtime rollouts.</p>
+            </div>
+            <div class="chapter-step">
+              <span class="step-label">What changed</span>
+              <p class="step-text">Patch night dropped to under 6 hours, and production vulnerabilities fell ~80%.</p>
+            </div>
+          </div>
           <div class="patch-bar" role="img" aria-label="Patch cycle time, before and after: 48 hours before, under 6 hours after">
             <div class="patch-bar-row">
               <span class="patch-bar-label">Before</span>
@@ -153,12 +211,32 @@
             <span class="chapter-role">Senior Engineering Manager · CSSI LLC · 2022–2024</span>
           </div>
           <h3 class="chapter-title">Learn to move</h3>
-          <p class="chapter-headline">Moved 350 servers to AWS, from pitch to cutover in 18 months.</p>
-          <p class="chapter-body">
-            <strong>Challenge:</strong> Leadership needed a case for leaving on-prem — and a team that could actually execute it.
-            <strong>What I did:</strong> Pitched the migration, then led architecture, security, and compliance design through cutover.
-            <strong>What changed:</strong> 350 servers moved to AWS with zero unplanned downtime, on an 18-month timeline I set myself.
-          </p>
+          <p class="chapter-headline">Moved 350 of 412 on-prem servers to AWS, from pitch to cutover in 18 months.</p>
+          <div class="chapter-steps">
+            <div class="chapter-step">
+              <span class="step-label">Challenge</span>
+              <p class="step-text">Leadership needed a case for leaving on-prem — and a team that could actually execute it.</p>
+            </div>
+            <div class="chapter-step">
+              <span class="step-label">What I did</span>
+              <p class="step-text">Pitched the migration, then led architecture, security, and compliance design through cutover.</p>
+            </div>
+            <div class="chapter-step">
+              <span class="step-label">What changed</span>
+              <p class="step-text">350 of 412 on-prem servers moved to AWS — an ~85% smaller on-prem footprint — with zero unplanned downtime, on an 18-month timeline.</p>
+            </div>
+          </div>
+          <div class="patch-bar" role="img" aria-label="On-prem footprint, before and after: 100% before, approximately 15% after">
+            <div class="patch-bar-row">
+              <span class="patch-bar-label">Before</span>
+              <div class="patch-bar-track"><div class="patch-bar-fill" style="--target:100%">100%</div></div>
+            </div>
+            <div class="patch-bar-row">
+              <span class="patch-bar-label">After</span>
+              <div class="patch-bar-track"><div class="patch-bar-fill patch-bar-fill-after" style="--target:15%">~15%</div></div>
+            </div>
+          </div>
+          <p class="visual-caption">~85% smaller on-prem footprint</p>
         </article>
 
         <article class="chapter">
@@ -168,11 +246,30 @@
           </div>
           <h3 class="chapter-title">Learn to scale</h3>
           <p class="chapter-headline">Made compliance a pull request.</p>
-          <p class="chapter-body">
-            <strong>Challenge:</strong> 15+ federal applications, a multi-million-dollar AWS portfolio, and compliance requirements that couldn't keep slowing delivery down.
-            <strong>What I did:</strong> Turned FISMA, FedRAMP, and NIST 800-53 controls into policy-as-code, led 8 engineers, and sat on the AI Governance Committee.
-            <strong>What changed:</strong> Cut AWS spend ~19% ($570K → $463K) while compliance checks ran inside the pipeline, not after it.
-          </p>
+          <div class="chapter-steps">
+            <div class="chapter-step">
+              <span class="step-label">Challenge</span>
+              <p class="step-text">15+ federal applications, a multi-million-dollar AWS portfolio, and compliance requirements that couldn't keep slowing delivery down.</p>
+            </div>
+            <div class="chapter-step">
+              <span class="step-label">What I did</span>
+              <p class="step-text">Turned FISMA, FedRAMP, and NIST 800-53 controls into policy-as-code, led 8 engineers, and sat on the AI Governance Committee.</p>
+            </div>
+            <div class="chapter-step">
+              <span class="step-label">What changed</span>
+              <p class="step-text">Cut AWS spend ~19% ($570K → $463K) while compliance checks ran inside the pipeline, not after it.</p>
+            </div>
+          </div>
+          <div class="patch-bar" role="img" aria-label="Top-4-application AWS spend, before and after: $570K before, $463K after">
+            <div class="patch-bar-row">
+              <span class="patch-bar-label">Before</span>
+              <div class="patch-bar-track"><div class="patch-bar-fill" style="--target:100%">$570K</div></div>
+            </div>
+            <div class="patch-bar-row">
+              <span class="patch-bar-label">After</span>
+              <div class="patch-bar-track"><div class="patch-bar-fill patch-bar-fill-after" style="--target:81%">$463K</div></div>
+            </div>
+          </div>
           <figure class="policy-snippet-wrap">
             <pre class="policy-snippet"><code>## illustrative OPA/Rego policy — generic example, not client code
 package platform.security
@@ -194,7 +291,7 @@ deny[msg] {
           I own hiring, mentorship, and sprint health for my team, sustaining
           a 90% sprint success rate. I partner with GRC, SOC, and Audit to
           keep compliance inside the pipeline instead of after it — work
-          that helped cut manual compliance reporting from hours to 30
+          that helped cut manual compliance reporting from 3–5 hours to 30
           minutes each sprint — and helped shape our AI acceptable-use
           guardrails. Earlier in my career, I also contributed to the
           technical roadmap behind a winning multi-million-dollar federal
@@ -207,11 +304,90 @@ deny[msg] {
         Food Policy Research Institute, and DevOps Engineer at REAN Cloud
         (AWS Partner), 2016–2017.
       </p>
+    </section>
 
-      <div class="projects-more">
-        <a href="resume.pdf" target="_blank" rel="noopener" class="btn-outline">
-          View Full Resume →
-        </a>
+    <!-- ── TECHNICAL SKILLS ── -->
+    <section id="skills" class="section section-alt">
+      <div class="section-inner">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="skill-category-title">Cloud & Infrastructure</h3>
+          <ul class="skill-tags">
+            <li>AWS</li><li>Azure</li><li>VMware</li><li>Terraform</li>
+            <li>CloudFormation</li><li>Ansible</li><li>Docker</li><li>Kubernetes</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">CI/CD & Automation</h3>
+          <ul class="skill-tags">
+            <li>GitHub Actions</li><li>Azure Pipelines</li><li>Jenkins</li><li>Secure SDLC</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Security & Compliance</h3>
+          <ul class="skill-tags">
+            <li>NIST 800-53</li><li>FISMA</li><li>FedRAMP</li><li>HashiCorp Vault</li>
+            <li>IAM</li><li>SIEM (Splunk)</li><li>CyberArk</li><li>Tanium</li>
+            <li>Nessus</li><li>Invicti</li><li>SonarQube</li><li>DbProtect</li>
+            <li>Prisma Cloud Scans</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Platform & Observability</h3>
+          <ul class="skill-tags">
+            <li>Kafka</li><li>Splunk</li><li>Elasticsearch</li>
+            <li>Sumo Logic</li><li>New Relic</li><li>CloudWatch</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ── CORE COMPETENCIES ── -->
+    <section id="competencies" class="section">
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="competencies-grid">
+        <div class="competency-card">
+          <h3 class="competency-title">Engineering Leadership</h3>
+          <ul class="competency-list">
+            <li>Led 8 engineers across DevOps, cloud, security, and application engineering</li>
+            <li>Hiring, mentoring, and performance reviews</li>
+            <li>Sustained a 90% sprint success rate</li>
+          </ul>
+        </div>
+        <div class="competency-card">
+          <h3 class="competency-title">Compliance as Code</h3>
+          <ul class="competency-list">
+            <li>Turned FISMA, FedRAMP, and NIST 800-53 controls into policy-as-code</li>
+            <li>Built CI/CD guardrails that auto-generate audit evidence</li>
+            <li>Cut manual compliance reporting from hours to 30 minutes a sprint</li>
+          </ul>
+        </div>
+        <div class="competency-card">
+          <h3 class="competency-title">Migration Strategy</h3>
+          <ul class="competency-list">
+            <li>Pitched and led the migration of 350 of 412 on-prem servers to AWS</li>
+            <li>Defined architecture, security, and compliance requirements through cutover</li>
+            <li>Chose hybrid vs. full migration case by case to meet contract requirements</li>
+          </ul>
+        </div>
+        <div class="competency-card">
+          <h3 class="competency-title">Stakeholder Alignment</h3>
+          <ul class="competency-list">
+            <li>Partnered with GRC, SOC, Audit, Product, and Executive leadership</li>
+            <li>Built the case for leaving on-prem and won leadership buy-in</li>
+            <li>Contributed to a winning multi-million-dollar federal modernization proposal</li>
+          </ul>
+        </div>
+        <div class="competency-card">
+          <h3 class="competency-title">AI Governance</h3>
+          <ul class="competency-list">
+            <li>Serve on the AI Governance Committee</li>
+            <li>Defined AI guardrails and acceptable-use standards under client contracts</li>
+            <li>Set a roadmap for future AI adoption</li>
+          </ul>
+        </div>
       </div>
     </section>
 
