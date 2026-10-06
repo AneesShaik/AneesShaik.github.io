@@ -31,6 +31,11 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
 svg { display: block; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 
 /* ── BUTTONS ── */
 .btn-primary {
@@ -293,7 +298,7 @@ svg { display: block; }
 .chapter-number {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-strong);
 }
 .chapter-role {
   font-size: 0.82rem;
